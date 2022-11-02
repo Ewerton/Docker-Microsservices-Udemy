@@ -1,4 +1,4 @@
-# Projeto de Microserviços do curso de Docker do Macoratti na UDEMY
+# Projeto de MicroserviÃ§os do curso de Docker do Macoratti na UDEMY
 
 Link para o [Curso na UDEMY](https://www.udemy.com/course/docker-essencial-para-a-plataforma-net).
 
@@ -6,7 +6,7 @@ Link para o [Curso na UDEMY](https://www.udemy.com/course/docker-essencial-para-
 A arquitetura desenvolvida no curso foi a seguinte:
 ![Arquitetura](Arquitetura.png)
 
-A parte de CLientes, OCELOT.NET e RabbitMQ não foi mostrada no curso pois estava fora do escopo
+A parte de CLientes, OCELOT.NET e RabbitMQ nÃ£o foi mostrada no curso pois estava fora do escopo
 
 Catalog.API -> http://localhost:8000/swagger/index.html
 
@@ -22,17 +22,17 @@ PgAdmin -> http://localhost:5050/
 	User: admin@ewerton.com
 	Pass: admin1234
 
-##Para interagir com o Container do Mongo (catalogdb)
+## Para interagir com o Container do Mongo (catalogdb)
 No terminal: `docker exec -it catalogdb bash`
 use `mongosh` para acessar o CLI do mongo
 use `show dbs` para verificar os DBs existentes
 use `db` para verificar os DBs selecionado
 use `use CatalogDB` para selecionar o DB criado
-use `show collections` para mostrar as cole��es criadas
+use `show collections` para mostrar as coleções criadas
 use `help` para mais comandos
 
 
-##Para Interagir com o container do Redis (basketdb)
+## Para Interagir com o container do Redis (basketdb)
 No terminal: `docker exec -it basketdb sh` 
 use `redis-cli` para ter acesso ao CLI do redis
 
