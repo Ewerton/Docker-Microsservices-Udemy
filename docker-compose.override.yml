@@ -30,7 +30,7 @@ services:
   pgadmin:
     container_name: pgadmin
     environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@macoratti.com
+      - PGADMIN_DEFAULT_EMAIL=admin@ewerton.com
       - PGADMIN_DEFAULT_PASSWORD=admin1234
     restart: always
     ports:

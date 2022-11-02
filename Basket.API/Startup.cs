@@ -35,6 +35,9 @@ namespace Basket.API
                 options.Configuration = Configuration.GetValue<string>("CacheSettings:ConnectionString");
             });
 
+            // This switch must be set before creating the GrpcChannel/HttpClient.
+            //AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+
             // General Configuration
             services.AddScoped<IBasketRepository, BasketRepository>();
 
