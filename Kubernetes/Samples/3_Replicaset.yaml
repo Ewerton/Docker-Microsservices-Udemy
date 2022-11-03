@@ -19,3 +19,10 @@ spec:
   selector:
     matchLabels:
       type: database  
+
+# kubectl apply -f 3_3_Replicaset.yaml -> vai criar 3 pods conforme instruido neste arquivo
+# kubectl get all --> para verificar quais pods foram criados
+# kubectl delete pod redis-replicaset-abcd1234 -> deleta um pod existente no ReplicaSet, o ReplicaSet vai criar outro para tentar manter 3 sempre ativos
+# kubectl scale replicaset redis-replicaset --replicas=6 -> escala este replicaset de 3 para 6 pods
+# kubectl run podteste --image=nginx --labels="type=database" -> vai tentar criar um sétimo pod mas só devem ter 6, o replicaset cria a logo em seguida destrói o novo pod
+# kubectl describe pod redis-replicaset-abcd1234 -> Para inspecionar dados de um pod
