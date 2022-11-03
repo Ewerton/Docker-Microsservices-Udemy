@@ -6,7 +6,7 @@ metadata:
     app: primeiro-pod
 spec:
   containers:
-  - name: nginx-container
+  - name: nginx-containerminikube 
     image: nginx
     ports:
     - containerPort: 80
@@ -14,3 +14,4 @@ spec:
 # kubectl apply -f .\2_Pratica_Pod1.yaml ->  para aplicar a definição deste arquivo
 # kubectl get all -> verifica os pods
 # kubctl exec -ti pod-nginx -- sh -> executa comandos dentro do container rodando dentro do POD
+# kubectl delete pod nginx-pod -> deleta o pod
