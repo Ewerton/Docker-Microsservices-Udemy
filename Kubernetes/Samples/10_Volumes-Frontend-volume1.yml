@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-volume
+  labels:
+    app: frontend-volume-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: container-volume
+          image: macoratti/pizzafrontend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: meuvolume
+              mountPath: "/app/meuvolume"
+      volumes:
+        - name: meuvolume
+          emptyDir: {}

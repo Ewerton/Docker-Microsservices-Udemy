@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    app: primeiro-pod
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    ports:
+    - containerPort: 80
+
+# kubectl apply -f .\2_Pratica_Pod1.yaml ->  para aplicar a definição deste arquivo
+# kubectl get all -> verifica os pods
+# kubctl exec -ti pod-nginx -- sh -> executa comandos dentro do container rodando dentro do POD

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: redis-replicaset
+spec:
+  template:
+    metadata:
+      name: mypod
+      labels:
+        app: myApp
+        type: database
+    spec:
+      containers:
+        - name: cont-redis
+          image: redis
+          ports:
+            - containerPort: 80
+  replicas: 3
+  selector:
+    matchLabels:
+      type: database  
