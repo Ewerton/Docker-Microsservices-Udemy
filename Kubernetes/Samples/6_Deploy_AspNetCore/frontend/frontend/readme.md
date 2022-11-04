@@ -2,9 +2,10 @@
 
 ![Fluxo de Trabalho](FluxoDeTrabalho.png)
 
-- Criada a aplicação
+## Crie uma aplicação AspNetCore
+No exemplo, foi criada uma aplicação de pizzaria.
 
-- Adicionado suporte à Docker (criando o Dockerfile)
+Foi adicionado suporte à Docker (criando o Dockerfile)
 
 ## Cria a Imagem da Aplicação
 Use o commando `docker build -f frontend/Dockerfile -t pizzafrontend .` na pasta da solution (note o . no final do comando)
