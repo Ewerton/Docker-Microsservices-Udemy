@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: pizzafrontend
-        image: macoratti/pizzafrontend:latest
+        image: ewernet/pizzafrontend:latest
         ports:
         - containerPort: 80
         env:
