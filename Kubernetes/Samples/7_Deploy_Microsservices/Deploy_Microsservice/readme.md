@@ -4,6 +4,7 @@ A Solução terá a seguinte Arquitetura:
 
 ![Fluxo de Trabalho](FluxoDeTrabalho.png)
 
+Nesta aplicação dois serviços serão criados, um frontend e um backend. Somente o frontend será exposto para o mundo externo. O frontend acessará o backend internamente dentro do cluster kubernetes
 ## Criando as Imagens do Backend e do Frontend da Solução
 
 Use o comando `docker build -f backend\Dockerfile -t backend .` Note o ponto ( . ) no final do comando
