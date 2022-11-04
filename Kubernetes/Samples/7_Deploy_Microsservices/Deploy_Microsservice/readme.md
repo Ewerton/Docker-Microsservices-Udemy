@@ -1,9 +1,10 @@
-# Deploy de uma soluÁ„o de MicrosserviÁos no Kubernetes
+# Deploy de uma solu√ß√£o de Microsservi√ßos no Kubernetes
 
-A SocluÁ„o ter· a seguinte Arquitetura:
-![FluxoDeTrabalho.png]
+A Solu√ß√£o ter√° a seguinte Arquitetura:
 
-## Criando as Imagens do Backend e do Frontend da SoluÁ„o
+![Fluxo de Trabalho](FluxoDeTrabalho.png)
+
+## Criando as Imagens do Backend e do Frontend da Solu√ß√£o
 
 Use o comando `docker build -f backend\Dockerfile -t backend .` Note o ponto ( . ) no final do comando
 
@@ -21,16 +22,16 @@ Use `docker push <seu_usuario>/pizzabackend` para enviar a imagem do backend par
 
 Use `docker push <seu_usuario>/pizzafrontend` para enviar a imagem do frontend para o DockerHub
 
-## Deploy dos ServiÁos no Kubernetes
-O arquivo `backend-deploy.yml` e o arquivo `frontend-deploy.yml` contÈm a definiÁ„o de um `Deployment` e de um `Service` do Kubernetes, tudo no mesmo arquivo.
+## Deploy dos Servi√ßos no Kubernetes
+O arquivo `backend-deploy.yml` e o arquivo `frontend-deploy.yml` cont√©m a defini√ß√£o de um `Deployment` e de um `Service` do Kubernetes, tudo no mesmo arquivo.
 
-O arquivo `backend-deploy.yml` o Service do backend est· definido com o tipo `ClusterIP`, ou seja, ele sÛ pode ser acessado dentro do cluster, isso porque o backend n„o precisa expor nada para o mundo exterior e o frontend est· rodando dentro do mesmo cluster.
+O arquivo `backend-deploy.yml` o Service do backend est√° definido com o tipo `ClusterIP`, ou seja, ele s√≥ pode ser acessado dentro do cluster, isso porque o backend n√£o precisa expor nada para o mundo exterior e o frontend est√° rodando dentro do mesmo cluster.
 
-J· o arquivo `frontend-deploy.yml` tem seu Service definido como `LoadBalancer` para expÙr a porta para que ela fique acessÌvel pelo browser
+J√° o arquivo `frontend-deploy.yml` tem seu Service definido como `LoadBalancer` para exp√¥r a porta para que ela fique acess√≠vel pelo browser
 
 Use `kubectl apply -f <NomeDoArquivo.yml>` para fazer o deploy no Kubernetes.
 
 ## Testando o Deploy
 
-Use `minikube service pizzafrontend` Isso vai criar o tunnel para o serviÁo e abrir o browser com a aplicaÁ„o rodando.
+Use `minikube service pizzafrontend` Isso vai criar o tunnel para o servi√ßo e abrir o browser com a aplica√ß√£o rodando.
 
