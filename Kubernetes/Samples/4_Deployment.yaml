@@ -20,3 +20,20 @@ spec:
   selector:
       matchLabels:
        app: nginx1
+
+# Um Deployment gerencia um ReplicaSet que gerencia os pods, ou seja, 
+#  podemos usar Deployments para manter os app e imagens sempre atualizados ou então, reverter versões automaticamente.
+#  É através do selector que o deploymente identifica quais pods ele vai gerenciar
+# É possivel usar a seção Strategy (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) no Deploymente para definir a estratégia de atualização dos PODS
+#   
+
+# kubectl apply -f 4_Deployment.yaml aplica este deployment ao Kubernetes
+# kubectl get all (get rs, get deploy) obtém todos os detalhes dos objetos
+# kubectl describe deployment <nome do deployment> mostra detalhes do deployment
+# kubectl delete pod --all ou delete pod <nome do pod> -> delete um pod de um deplyment para testar
+# kubectl scale deployment <nome do deploy> --replicas 99 --> Para fazer escala pelo deployment
+# kubectl rollout undo deployment <nome do deploy> --> Para fazer rollback de uma versão do deployment
+#         - A cada novo deployment, o Kubernetes cria um novo ReplicaSet e faz o rollback do antigo para o novo
+# kubectl rollout history deployment <nome do deploy> --> Para ver o histórico de versões do deployment e o que foi feito em cada uma
+# kubectl rollout status deployment <nome do deploy> --> Para ver o status do deployment
+#
