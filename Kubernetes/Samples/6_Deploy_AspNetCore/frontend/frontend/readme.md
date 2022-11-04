@@ -1,6 +1,6 @@
 ﻿# Fluxo completo de publicação de uma aplicação AspNetCore no Kubernetes
 
-[Image] Arquitetura.png
+![Fluxo de Trabalho](FluxoDeTrabalho.png)
 
 - Criada a aplicação
 
