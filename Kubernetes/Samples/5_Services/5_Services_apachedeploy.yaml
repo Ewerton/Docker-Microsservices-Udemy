@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+   name: apache-service
+spec:
+  type: ClusterIP
+  selector:
+    app: meu-deploy
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+
+# O serviço é um objeto que permite que os pods sejam acessados externamente através de um IP fixo e uma porta fixa
+# Cada Serviçe permite o Gerenciamento de um grupo de pods, o grupo de pods que será gerenciado pelo serviço é definido pelo selector e label do serviço      
+# Tipos de Serviços: 
+#   ClusterIP: É o tipo padrão, ele cria um IP fixo para o serviço e permite que os pods sejam acessados apenas dentro do cluster
+#   NodePort: Cria um IP fixo para o serviço e uma porta fixa para o serviço, permite que os pods sejam acessados externamente através do IP do nó e da porta do serviço
+#   LoadBalancer: Cria um IP fixo para o serviço e uma porta fixa para o serviço, permite que os pods sejam acessados externamente através do IP do LoadBalancer e da porta do serviço
+#   ExternalName: Cria um DNS para o serviço, permite que os pods sejam acessados externamente através do DNS do serviço
+
+

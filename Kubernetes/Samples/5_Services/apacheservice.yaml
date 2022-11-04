@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: apache-service
+spec:
+  type: ClusterIP
+  selector:
+    app: apache-deploy
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+
+
+# kubectl apply -f 5_Services\apachedeploy.yaml para criar o depoy dos 3 pods com o apache
+# Aguarde a criação (kubectl get all para verificar o status)
+# kubectl apply -f 5_Services\apacheservice.yaml para criar o serviço que gerenciará os 3 pods com o apache
+# kubectl get svc -> para verificar o serviço criado
+# kubectl describe svc apache-service -> para verificar detalhes do serviço criado (inclusive o selector sobre o qual o serviço atua)
+# kubectl get pods -o wide -> para verificar o IP do pod
+
+# Para poder testar o apache a partir do navegador local, é preciso fazer port-forwarding de uma porta local para a porta do pod, para isso:
+# kubectl port-forward deployment.apps/apache-deploy 7000:8080 -> faz o port-forwarding da porta da porta local 7000 para a porta 8080 onde o apache está rodando no pod
+# abra o navegador e digite localhost:7000 -> para acessar o apache, você deverá ver a mensagem "it works" no navegador
