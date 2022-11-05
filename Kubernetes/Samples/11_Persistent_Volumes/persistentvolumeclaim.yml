@@ -10,7 +10,9 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
+     # Usando todo o recurso disponivel no PV
      storage: 5Mi
   selector:
     matchLabels:
+     # informando qual PV será utilizado 
      type : local-pv 

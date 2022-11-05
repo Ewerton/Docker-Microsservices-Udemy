@@ -4,15 +4,16 @@ metadata:
   name: aspnet-pod
 spec:
   containers:
-   - name: aspn-container
-     image: macoratti/pizzafrontend:latest
+   - name: aspnet-container
+     image: ewernet/pizzafrontend:latest
      ports:
       - containerPort: 80
         name: "frontend-mvc"
      volumeMounts:
         - mountPath: "/app/meuvolume"
-          name: aspn-storage
+          name: aspnet-storage
   volumes:
-    - name: aspn-storage
+    - name: aspnet-storage
       persistentVolumeClaim:
+        # informando qual PVC será utilizado
         claimName: aspnet-pvc
