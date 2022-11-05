@@ -15,3 +15,20 @@ spec:
             name: pizzafrontend
             port:
               number: 8080
+
+# O Ingress é usado para expor e gerenciar acesso externo aos serviços em um cluster usando rotas HTTP e HTTPS
+# O Ingress fica "na frente" dos serviços e tem a capacidade de rotear para vários serviços, isso torna mais fácil de gerenciar do que expor os serviços individualmente.
+# Para o Ingress funcionar ele precisa de um "Ingress-Controller" e existem vários que pode ser usados, o mais popular é o "ingress-nginx"
+# Para habilitar o ingress use o comando: minikube addons enable ingress
+
+# Este arquivo yaml define um ingress para a aplicação pizzafrontend que já criamos
+# No Linux
+#   use "kubectl apply -f 9_Ingress-frontend-ingress.yaml" para criar o ingress
+#   use "kubectl get ingress" para verificar se o ingress foi criado  e seu IP
+#   Abra o navegador e tente acessar o endereço
+# No Windows (Pq existe um bug no driver do Docker no Windows)
+#   use "minikube tunnel" em outra janela de comando porque a janela tem que ficar aberta enquanto o tunnel estiver ativo
+#   use "minikube ssh" em outra janela para iniciar uma sessão SSH
+#   use "curl 192.168.XX.X o IP que aparece no comando "kubectl get ingress"" para verificar se o ingress está funcionando
+#   O resultado será o conteúdo da página html do pizzaservice
+
