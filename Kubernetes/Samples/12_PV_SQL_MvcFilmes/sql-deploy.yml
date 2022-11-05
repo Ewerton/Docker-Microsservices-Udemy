@@ -30,4 +30,5 @@ spec:
       volumes: 
       - name: mssqldb
         persistentVolumeClaim:
+          # Associando este deployment ao PVC criado 
           claimName: mssql-pvc

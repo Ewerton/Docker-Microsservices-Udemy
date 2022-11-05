@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: crudcontainer
-          image: macoratti/mvcfilmes:latest
+          image: ewernet/mvcfilmes:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
