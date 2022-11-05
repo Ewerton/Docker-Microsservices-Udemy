@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: container-volume
-          image: macoratti/pizzafrontend:latest
+          image: ewernet/pizzafrontend:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
@@ -26,3 +26,23 @@ spec:
       volumes:
         - name: meuvolume
           emptyDir: {}
+
+# Volumes podem ser efêmeros, ou seja, ficam dentro do Pod, quando o container reinicia o Volume não é perdido, porém, 
+# quando o Pod é removido o Volume é perdido
+# O Volume persistente fica fora do POD, ou seja, quando o POD é removido o Volume persistente não é perdido
+# existem vários tipos de volume, o mais comum é o "emptyDir" que é um volume efêmero e que é criado quando o POD é criado
+# para verificar todos os tipos veja a documentação (https://kubernetes.io/docs/concepts/storage/volumes/)
+
+# TESTE DE VOLUME
+# Aplique este arquivo yaml com o comando "kubectl apply -f 10_Volumes-Frontend-volume1.yml"
+# Verifique a criação do POD com "kubectl describe pod "
+# Crie um arquivo no Volume usando "kubectl exec -it [POD] -- /bin/bash"
+# fala um "ls -la" e verifique dentro do container existe o diretório "meuvolume"
+# entre no diretorio "meuvolume" e crie um arquivo lá usando "echo 'Conteudo do arquivo' > MeuArquivo.txt "
+# mate o container usando "kubectl exec [POD] -c [CONTAINER] -- /bin/sh -c "kill 1" "
+# usando "kubectl describe pod <NomePod>" Você verá que o pod foi reiniciado
+# entre novamente no container usando "kubectl exec -it [POD] -- /bin/bash", entre no diretorio "meuvolume" e veja que o arquivo ainda está lá com o conteúdo original
+
+# Mate o Pod usando "kubectl delete [POD]" e verifique o arquivo criado  
+# entre novamente dentro do container e verifique que o diretório existe mas o arquivo não está mais lá pois Volumes do tipo emptyDir tem o mesmo cico de vida do POD
+
